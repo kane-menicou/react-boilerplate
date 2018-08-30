@@ -1,0 +1,35 @@
+{
+  "name": "react-boiler-plate",
+  "version": "1.0.0",
+  "description": "Starting template for react.js",
+  "main": "index.js",
+  "repository": "https://github.com/kane-menicou/react-boiler-plate",
+  "author": "Kane Menicou",
+  "license": "proprietary",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack.dev.conf.js --mode development --open --progress --hot --inline",
+    "build": "webpack --config config/webpack.prod.conf.js --mode production"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.12",
+    "@types/react-dom": "^16.0.7",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.2",
+    "ts-loader": "^4.5.0",
+    "tslint": "^5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-loader": "^3.6.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}

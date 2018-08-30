@@ -1,0 +1,8 @@
+# IDE
+.idea
+
+# Complied assets
+public/*
+
+# Vendor modules
+node_modules/
