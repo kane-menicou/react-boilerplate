@@ -47,8 +47,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    htmlPlugin,
-    tsCheckerPlugin,
-  ],
+  plugins: [htmlPlugin, tsCheckerPlugin],
 }
