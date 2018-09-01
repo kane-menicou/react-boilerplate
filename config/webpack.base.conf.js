@@ -1,56 +1,54 @@
 'use strict'
 
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+
+const babelConfig = require('./babel')
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: './src/index.html',
-  filename: './index.html'
+  template: path.join(__dirname, '..', 'src', 'index.html'),
+  filename: './index.html',
 })
 
-const cssPlugin = new MiniCssExtractPlugin({
-  filename: '[name].[hash].css',
-  chunkFilename: '[id].css'
+const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
+  tslint: path.join(__dirname, 'tslint.json'),
+  tsconfig: path.join(__dirname, 'tsconfig.json'),
+  async: false,
 })
 
 module.exports = {
   output: {
     path: path.resolve('public'),
-    filename: 'app.[hash].js'
+    filename: 'app.[hash].js',
   },
   entry: './src/index.tsx',
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(ts|tsx)$/,
-        loader: 'tslint-loader',
-        exclude: /node_modules/,
-        options: {
-          emitErrors: true,
-          typeCheck: true
-        }
-      },
-      {
         test: /\.(tsx|ts)?$/,
         use: [
-          { loader: 'ts-loader' }
-        ]
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              ...babelConfig,
+            },
+          },
+        ],
       },
       {
-        test: /\.css$/,
+        test: /\.(sass|scss)/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../'
-            }
-          },
-          'css-loader'
-        ]
-      }
-    ]
+          {loader: 'style-loader'},
+          {loader: 'css-loader'},
+          {loader: 'sass-loader'},
+        ],
+      },
+    ],
   },
-  plugins: [htmlPlugin, cssPlugin]
+  plugins: [
+    htmlPlugin,
+    tsCheckerPlugin,
+  ],
 }

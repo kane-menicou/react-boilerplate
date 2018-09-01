@@ -6,3 +6,6 @@ public/*
 
 # Vendor modules
 node_modules/
+
+# Logs
+yarn-error.log

@@ -1,10 +1,8 @@
-
 import * as React from 'react'
 import { render } from 'react-dom'
-import './index.css'
+import './index.sass'
+import { hot } from 'react-hot-loader'
 
-const Index = () => {
-  return <div className='hi'>Hello React!</div>
-}
+const App = hot(module)(() => <div className='hi'>Hello React!</div>)
 
-render(<Index />, document.getElementById('index'))
+render(<App />, document.getElementById('index'))
