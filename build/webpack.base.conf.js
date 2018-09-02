@@ -2,7 +2,6 @@
 
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const babelConfig = require('./babel')
 
@@ -11,22 +10,19 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: './index.html',
 })
 
-const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
-  tslint: path.join(__dirname, 'tslint.json'),
-  tsconfig: path.join(__dirname, 'tsconfig.json'),
-  async: false,
-})
-
 module.exports = {
   output: {
     path: path.resolve('public'),
     filename: 'app.js',
   },
   entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+  },
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)?$/,
+        test: /\.ts(x)?$/,
         use: [
           {
             loader: 'babel-loader',
@@ -38,7 +34,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(sass|scss)/,
+        test: /\.(s([ca])ss)/,
         use: [
           {loader: 'style-loader'},
           {loader: 'css-loader'},
@@ -59,5 +55,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [htmlPlugin, tsCheckerPlugin],
+  plugins: [htmlPlugin],
 }
