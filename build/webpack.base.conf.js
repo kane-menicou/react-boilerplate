@@ -20,7 +20,7 @@ const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
 module.exports = {
   output: {
     path: path.resolve('public'),
-    filename: 'app.[hash].js',
+    filename: 'app.js',
   },
   entry: './src/index.tsx',
   module: {
@@ -43,6 +43,18 @@ module.exports = {
           {loader: 'style-loader'},
           {loader: 'css-loader'},
           {loader: 'sass-loader'},
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '',
+              name: '[hash].[ext]',
+            },
+          },
         ],
       },
     ],
