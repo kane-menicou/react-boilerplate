@@ -6,7 +6,7 @@ const App = () => {
         <div className='hi'>
             <img src={require('./logo.png')}/>
             <h1>React App</h1>
-            <p>React app boiler plate. Ready for use. Hi there</p>
+            <p>React app boiler plate. Ready for use.</p>
         </div>
   )
 }

@@ -10,7 +10,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
   tslint: path.join(__dirname, 'tslint.json'),
   tsconfig: path.join(__dirname, 'tsconfig.json'),
-  async: false,
+  async: true,
 })
 
 module.exports = merge(baseConfig, {
