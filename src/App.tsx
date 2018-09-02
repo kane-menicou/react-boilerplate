@@ -4,9 +4,9 @@ import './index.sass'
 
 const App = () => {
   return (
-        <div className='hi'>
+        <div>
             <img src={require('./logo.png')}/>
-            <h1>React App</h1>
+            <h1 className='title'>React App</h1>
             <p>React app boiler plate. Ready for use.</p>
         </div>
   )
