@@ -1,23 +1,35 @@
-import { createBrowser, openPage } from './helper'
-
-let browser
+import puppeteer from 'puppeteer'
 
 describe('End To End tests', () => {
-  beforeAll(async () => {
-    browser = await createBrowser()
-  })
+  let browser
+  let page
 
   afterAll(() => {
     browser.close()
   })
 
+  beforeAll(async () => {
+    browser = await puppeteer.launch({
+      headless: true,
+    })
+  })
+
+  beforeEach(async () => {
+    page = await browser.newPage()
+
+    page.emulate({
+      viewport: {width: 500, height: 2400},
+      userAgent: '',
+    })
+  })
+
   it('should work', async () => {
-    const page = await openPage(browser)
+    await page.goto('http://localhost:8080/')
 
-    await page.waitForSelector('.title')
+    const header = await page.evaluate(
+      () => document.querySelector('.header').textContent,
+    )
 
-    const html = await page.$eval('.title', e => e.innerHTML)
-
-    expect(html).toBe('React App')
+    expect(header).toBe('React App')
   }, 16000)
 })
