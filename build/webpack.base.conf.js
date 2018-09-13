@@ -34,10 +34,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.(s([ca])ss)/,
+        test: /\.((s)?([ca])ss)/,
         use: [
           {loader: 'style-loader'},
-          {loader: 'css-loader'},
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              importLoaders: 1
+            },
+          },
           {loader: 'sass-loader'},
         ],
       },

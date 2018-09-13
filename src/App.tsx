@@ -1,13 +1,14 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader'
-import './index.sass'
+import style from './App.sass'
+import logo from './logo.png'
 
 const App = () => {
   return (
         <div>
-            <img src={require('./logo.png')}/>
-            <h1 className='title'>React App</h1>
-            <p>React app boiler plate. Ready for use.</p>
+            <img className={style.image} src={logo}/>
+            <h1 className={style.header}>React App</h1>
+            <p className={style.body}>React app boiler plate. Ready for use.</p>
         </div>
   )
 }

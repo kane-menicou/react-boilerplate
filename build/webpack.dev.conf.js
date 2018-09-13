@@ -17,7 +17,7 @@ const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
 
 const notifyPlugin = new WebpackNotifierPlugin({
   title: packageConfig.name,
-  contentImage: path.join(__dirname, 'image/logo.png')
+  contentImage: path.join(__dirname, 'logo/logo.png')
 })
 
 module.exports = merge(baseConfig, {
