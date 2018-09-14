@@ -17,5 +17,5 @@ module.exports = merge(baseConfig, {
   output: {
     filename: '[hash].js',
   },
-  plugins: [tsCheckerPlugin]
+  plugins: [tsCheckerPlugin],
 })

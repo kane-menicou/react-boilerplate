@@ -2,17 +2,17 @@ const path = require('path')
 
 module.exports = {
   rootDir: path.resolve(__dirname, '../'),
-  testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   testPathIgnorePatterns: [
     '<rootDir>/e2e',
   ],
-  cacheDirectory: "./.cache",
+  cacheDirectory: './.cache',
   moduleNameMapper: {
-    "^.+\\.(png|s([ca])ss)?$": "<rootDir>/build/stub.js"
+    '^.+\\.(png|s([ca])ss)?$': '<rootDir>/build/stub.js',
   },
   setupFiles: ['<rootDir>/build/jest.setup.js'],
-  moduleFileExtensions: ["js", "json", "ts", "tsx"],
+  moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
   transform: {
-    "^.+\\.tsx?$": "babel-jest"
+    '^.+\\.tsx?$': 'babel-jest',
   },
 }

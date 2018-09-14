@@ -42,7 +42,7 @@ module.exports = {
             options: {
               modules: true,
               camelCase: true,
-              importLoaders: 1
+              importLoaders: 1,
             },
           },
           {loader: 'sass-loader'},

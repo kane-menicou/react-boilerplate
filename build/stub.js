@@ -1,4 +1,4 @@
 /**
  * Stub module for random purposes
  */
-module.exports = {};
+module.exports = {}
