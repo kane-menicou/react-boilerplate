@@ -10,8 +10,8 @@
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.dev.conf.js --mode development --open --progress --hot --inline",
     "build": "webpack --config build/webpack.prod.conf.js --mode production",
-    "unit": "jest --config build/jest.unit.conf.js",
-    "e2e": "jest --config build/jest.e2e.conf.js"
+    "unit": "jest --config build/tests/jest.unit.conf.js",
+    "e2e": "jest --config build/tests/jest.e2e.conf.js"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
