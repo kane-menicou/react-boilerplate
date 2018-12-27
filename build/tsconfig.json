@@ -9,7 +9,7 @@
     "target": "es5",
     "jsx": "react",
     "lib": [
-      "es2015",
+      "es2018",
       "DOM"
     ]
   },
