@@ -24,7 +24,6 @@ module.exports = merge(baseConfig, {
   devServer: {
     overlay: true,
     hot: true,
-    historyApiFallback: true
   },
   plugins: [tsCheckerPlugin, notifyPlugin],
 })
