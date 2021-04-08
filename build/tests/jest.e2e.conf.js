@@ -7,4 +7,5 @@ module.exports = {
     '<rootDir>/src',
   ],
   cacheDirectory: './.cache',
+  setupFiles: ['<rootDir>/build/tests/jest.e2e.setup.js'],
 }

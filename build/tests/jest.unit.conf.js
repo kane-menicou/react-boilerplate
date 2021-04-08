@@ -10,7 +10,7 @@ module.exports = {
   moduleNameMapper: {
     '^.+\\.(png|s([ca])ss)?$': '<rootDir>/build/stub.js',
   },
-  setupFiles: ['<rootDir>/build/tests/jest.setup.js'],
+  setupFiles: ['<rootDir>/build/tests/jest.unit.setup.js'],
   moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
   transform: {
     '^.+\\.tsx?$': 'babel-jest',

@@ -15,7 +15,10 @@ module.exports = {
     path: path.resolve('public'),
     filename: 'app.js',
   },
-  entry: './src/index.tsx',
+  entry: [
+    './src/index.tsx',
+    'regenerator-runtime/runtime'
+  ],
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
@@ -34,14 +37,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.((s)?([ca])ss)/,
+        test: /\.s[ca]ss/,
         use: [
           {loader: 'style-loader'},
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              camelCase: true,
               importLoaders: 1,
             },
           },
