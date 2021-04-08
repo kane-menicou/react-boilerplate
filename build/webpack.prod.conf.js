@@ -5,6 +5,6 @@ const baseConfig = require('./webpack.base.conf')
 
 module.exports = merge(baseConfig, {
   output: {
-    filename: '[hash].js',
+    filename: '[fullhash].js',
   },
 })
